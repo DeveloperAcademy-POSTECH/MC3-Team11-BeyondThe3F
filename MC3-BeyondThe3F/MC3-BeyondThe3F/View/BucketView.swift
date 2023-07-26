@@ -8,8 +8,38 @@
 import SwiftUI
 
 struct BucketView: View {
+    let musicPlayer = MusicPlayer.shared
     var body: some View {
-        Text("Hello, World!")
+        VStack(spacing:40){
+            Text("Hello, World!")
+            Button {
+                musicPlayer.playlist = MainDataModel.shared.getData[0].musicList
+            } label: {
+                Text("playList")
+            }
+
+            Button {
+                musicPlayer.previousButtonTapped()
+            } label: {
+                Text("previous Button Tapped")
+            }
+            Button {
+                musicPlayer.playButtonTapped()
+            } label: {
+                Text("play Button Tapped")
+            }
+            Button {
+                musicPlayer.nextButtonTapped()
+            } label: {
+                Text("next Button Tapped")
+            }
+            Button {
+                print(musicPlayer.currentMusicItem)
+            } label: {
+                Text("nowPlayingItem")
+            }
+        }
+
     }
 }
 
